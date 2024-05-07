@@ -39,5 +39,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+    private void displayChewingGumData() {
+        List<ChewingGum> chewingGums = databaseHelper.getChewingGum();
+        StringBuilder sb = new StringBuilder();
+
+        for (ChewingGum gum : chewingGums) {
+            sb.append("ID: ").append(gum.getId()).append("\n");
+            sb.append("Taste: ").append(gum.getTaste()).append("\n");
+            sb.append("Chewiness: ").append(gum.getChewiness()).append("\n");
+            sb.append("Color: ").append(gum.getColor()).append("\n\n");
+        }
+        textViewChewingGum.setText(sb.toString());
+    }
 }
 
