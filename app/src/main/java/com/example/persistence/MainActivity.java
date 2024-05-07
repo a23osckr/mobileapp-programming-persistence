@@ -29,13 +29,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view)
-    {
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.readButton:
-                // Do something
+                displayChewingGumData();
+                break;
             case R.id.writeButton:
-                // DO something
+                writeChewingGumData();
+                break;
         }
     }
 }
