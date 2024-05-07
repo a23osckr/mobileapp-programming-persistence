@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1; // If this is incremented onUpgrade() will be executed
+    private static final int DATABASE_VERSION = 2; // If this is incremented onUpgrade() will be executed
     private static final String DATABASE_NAME = "ChewingGum.db"; // The file name of our database
 
     DatabaseHelper(Context context) {
@@ -16,7 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // This method is executed only if there is not already a database in the file `ChewingGum.db`
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(DatabaseTables.SQL_CREATE_TABLE_CHEWINGUM);
+        sqLiteDatabase.execSQL(DatabaseTables.SQL_CREATE_TABLE_CHEWINGGUM);
     }
 
     // This method is executed only if the database version has changed, e.g. from 1 to 2
