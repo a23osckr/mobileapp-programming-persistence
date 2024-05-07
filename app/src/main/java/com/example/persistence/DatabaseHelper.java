@@ -25,4 +25,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(DatabaseTables.SQL_DELETE_TABLE_CHEWINGGUM);
         onCreate(sqLiteDatabase);
     }
+
+    public long addChewingGum(String taste, int chewiness, String color) {
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DatabaseTables.ChewingGum.COLUMN_NAME_TASTE, taste);
+        values.put(DatabaseTables.ChewingGum.COLUMN_NAME_CHEWINESS, chewiness);
+        values.put(DatabaseTables.ChewingGum.COLUMN_NAME_COLOR, color);
+        //database.close();
+        return database.insert(DatabaseTables.ChewingGum.TABLE_NAME, null, values);
+    }
 }
