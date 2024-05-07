@@ -10,6 +10,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button readButton;
     private Button writeButton;
+    private TextView textViewChewingGum;
+
     private SQLiteDatabase database;
     private DatabaseHelper databaseHelper;
     @Override
