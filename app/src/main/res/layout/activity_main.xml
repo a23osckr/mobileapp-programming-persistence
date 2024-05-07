@@ -29,39 +29,44 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
 
         <EditText
-            android:id="@+id/editText1"
-            android:layout_width="wrap_content"
+            android:id="@+id/editTextTaste"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter taste here!"
+            android:inputType="text"
             />
 
         <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
+            android:id="@+id/editTextChewiness"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:hint="Enter chewiness rating here!"
+            android:inputType="number"
             />
 
         <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
+            android:id="@+id/editTextColor"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter color here!"
+            android:inputType="text"
             />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:textSize="12sp"
+        android:scrollbars="vertical"
         />
 
 </LinearLayout>
