@@ -12,8 +12,7 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button readButton;
-    private Button writeButton;
+
     private TextView textViewChewingGum;
 
     private SQLiteDatabase database;
@@ -30,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Create
         databaseHelper = new DatabaseHelper(this);
         database = databaseHelper.getWritableDatabase();
+
+        Button readButton;
+        Button writeButton;
 
         readButton = findViewById(R.id.readButton);
         readButton.setOnClickListener(this);
