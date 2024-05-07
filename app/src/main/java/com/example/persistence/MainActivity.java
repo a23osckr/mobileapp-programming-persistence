@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
     private void displayChewingGumData() {
         List<ChewingGum> chewingGums = databaseHelper.getChewingGum();
         StringBuilder sb = new StringBuilder();
