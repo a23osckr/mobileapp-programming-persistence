@@ -65,5 +65,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         textViewChewingGum.setText(sb.toString());
     }
+
+    private void writeChewingGumData() {
+        EditText editTextTaste = findViewById(R.id.editTextTaste);
+        EditText editTextChewiness = findViewById(R.id.editTextChewiness);
+        EditText editTextColor = findViewById(R.id.editTextColor);
+
+        String taste = editTextTaste.getText().toString().trim();
+        String chewiness = editTextChewiness.getText().toString().trim();
+        String color = editTextColor.getText().toString().trim();
+
+        // Check if any field is empty
+        if (taste.isEmpty() || color.isEmpty() || chewiness.isEmpty()) {
+            if (taste.isEmpty()) {
+                editTextTaste.setError("Please enter taste");
+            }
+            if (color.isEmpty()) {
+                editTextColor.setError("Please enter color");
+            }
+            if (chewiness.isEmpty()) {
+                editTextChewiness.setError("Please enter chewiness");
+            }
+            return;
+        }
+
+        // Add data
+        databaseHelper.addChewingGum(taste, Integer.parseInt(chewiness), color);
+
+        // Clear fields
+        editTextTaste.setText("");
+        editTextChewiness.setText("");
+        editTextColor.setText("");
+
+        // Data added successfully
+        Toast.makeText(this, "Chewing gum data added successfully", Toast.LENGTH_SHORT).show();
+    }
 }
 
