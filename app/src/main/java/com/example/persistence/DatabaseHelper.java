@@ -1,8 +1,13 @@
 package com.example.persistence;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -34,5 +39,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(DatabaseTables.ChewingGum.COLUMN_NAME_COLOR, color);
         //database.close();
         return database.insert(DatabaseTables.ChewingGum.TABLE_NAME, null, values);
+    }
+
+    public List<ChewingGum> getChewingGum() {
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.query(DatabaseTables.ChewingGum.TABLE_NAME, null, null, null, null, null, null);
+        List<ChewingGum> chewingGums = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            ChewingGum chewingGum = new ChewingGum(
+                    cursor.getLong(cursor.getColumnIndexOrThrow(DatabaseTables.ChewingGum.COLUMN_NAME_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTables.ChewingGum.COLUMN_NAME_TASTE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTables.ChewingGum.COLUMN_NAME_CHEWINESS)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTables.ChewingGum.COLUMN_NAME_COLOR))
+            );
+            chewingGums.add(chewingGum);
+        }
+        cursor.close();
+        return chewingGums;
     }
 }
