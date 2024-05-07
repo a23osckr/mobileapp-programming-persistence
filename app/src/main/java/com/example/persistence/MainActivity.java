@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textViewChewingGum = findViewById(R.id.textView);
+
+        textViewChewingGum.setMovementMethod(new ScrollingMovementMethod());
 
         // Create
         databaseHelper = new DatabaseHelper(this);
